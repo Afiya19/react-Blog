@@ -10,10 +10,10 @@ export default function Signin() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can handle sign-in logic here
+   
     console.log('Username:', username);
     console.log('Password:', password);
-    navigate('/dashboard'); // Redirect to dashboard after sign-in
+    navigate('/dashboard'); 
   };
 
   return (

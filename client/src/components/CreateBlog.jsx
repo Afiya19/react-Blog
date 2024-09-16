@@ -3,17 +3,17 @@ import { useDispatch } from 'react-redux';
 import { createBlog } from '../redux/blog/blogSlice';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import TextEditor from './TextEditor';  // Import the TextEditor
+import TextEditor from './TextEditor';  
 
 export default function CreateBlog() {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');  // This will store editor content
+  const [content, setContent] = useState('');  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newBlog = { id: uuidv4(), title, content };  // Use content from state
+    const newBlog = { id: uuidv4(), title, content };  
     dispatch(createBlog(newBlog));
     navigate('/blogs');
   };
@@ -28,13 +28,13 @@ export default function CreateBlog() {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="border px-3 py-2 w-full"
+             className="border px-3 py-2 w-full text-black"
             required
           />
         </div>
         <div className="mb-4">
           <label className="block text-sm font-medium">Content</label>
-          <TextEditor content={content} setContent={setContent} /> {/* Use TextEditor */}
+          <TextEditor content={content} setContent={setContent} /> 
         </div>
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
           Create Blog

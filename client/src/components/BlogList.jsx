@@ -5,20 +5,20 @@ import { deleteBlog } from '../redux/blog/blogSlice';
 
 export default function BlogList() {
   const blogs = useSelector(state => state.blogs.blogs);
-  const searchQuery = useSelector(state => state.blogs.searchQuery);  // Get search query from Redux
+  const searchQuery = useSelector(state => state.blogs.searchQuery);  
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
     dispatch(deleteBlog(id));
   };
 
-  // Filter blogs based on the search query
+  
   const filteredBlogs = searchQuery
     ? blogs.filter(blog =>
         blog.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         blog.content.toLowerCase().includes(searchQuery.toLowerCase())
       )
-    : blogs; // If searchQuery is empty, show all blogs
+    : blogs; 
 
   return (
     <div className="container mx-auto my-4">

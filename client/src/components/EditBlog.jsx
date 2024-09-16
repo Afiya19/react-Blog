@@ -22,7 +22,7 @@ export default function EditBlog() {
 
   useEffect(() => {
     if (!blog) {
-      navigate('/blogs');  // Redirect if the blog doesn't exist
+      navigate('/blogs');  
     }
   }, [blog, navigate]);
 

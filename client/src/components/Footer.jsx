@@ -61,10 +61,10 @@ export default function FooterCom() {
         </div>
         <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-between">
-          {/* Fix the getFullYear call */}
+          
           <Footer.Copyright href="#" by="Afiya Blog" year={new Date().getFullYear()} />
           <div className="flex gap-6 sm:mt-0 mt-4 sm:justify-center">
-            {/* Footer Icons with valid links */}
+           
             <Footer.Icon href="#" icon={BsFacebook} />
             <Footer.Icon href="#" icon={BsInstagram} />
             <Footer.Icon href="https://github.com/Afiya19" icon={BsGithub} />

@@ -2,13 +2,12 @@ import React, { useState, useRef } from 'react';
 import Quill from 'quill';
 
 export default function TextEditor() {
-  const [content, setContent] = useState(''); // State to hold the content
+  const [content, setContent] = useState(''); 
   const editorRef = useRef(null);
 
-  // Initialize Quill when the component is mounted
   React.useEffect(() => {
     const quill = new Quill(editorRef.current, {
-      theme: 'snow',  // Quill has different themes: 'snow' is the default
+      theme: 'snow',  
       placeholder: 'Compose your blog post...',
       modules: {
         toolbar: [
@@ -21,13 +20,13 @@ export default function TextEditor() {
     });
 
     quill.on('text-change', () => {
-      setContent(quill.root.innerHTML); // Get editor content
+      setContent(quill.root.innerHTML);
     });
   }, []);
 
   return (
     <div>
-      <div ref={editorRef} style={{ height: '300px' }}></div> {/* Editor container */}
+      <div ref={editorRef} style={{ height: '300px' }}></div> 
       <div className="mt-4">
         <h3>Preview</h3>
         <div dangerouslySetInnerHTML={{ __html: content }}></div>

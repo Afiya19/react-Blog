@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   blogs: [],
-  searchQuery: ''  // Add searchQuery to state
+  searchQuery: ''  
 };
 
 const blogSlice = createSlice({
@@ -22,7 +22,7 @@ const blogSlice = createSlice({
       state.blogs = state.blogs.filter(blog => blog.id !== action.payload);
     },
     setSearchQuery: (state, action) => {
-      state.searchQuery = action.payload;  // Set the search query
+      state.searchQuery = action.payload;  
     }
   }
 });
