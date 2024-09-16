@@ -28,7 +28,7 @@ export default function FooterCom() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Instagram
+                  
                 </Footer.Link>
                 <Footer.Link href="#" target="_blank" rel="noopener noreferrer">
                   Afiya's Blog
