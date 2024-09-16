@@ -1,7 +1,11 @@
-import React from 'react'
+import React from 'react';
+import BlogList from '../components/BlogList'; 
 
 export default function Home() {
   return (
-    <div>Home</div>
-  )
+    <div>
+     
+      <BlogList />
+    </div>
+  );
 }
