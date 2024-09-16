@@ -3,16 +3,17 @@ import { useDispatch } from 'react-redux';
 import { createBlog } from '../redux/blog/blogSlice';
 import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import TextEditor from './TextEditor';  // Import the TextEditor
 
 export default function CreateBlog() {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [content, setContent] = useState('');  // This will store editor content
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newBlog = { id: uuidv4(), title, content };
+    const newBlog = { id: uuidv4(), title, content };  // Use content from state
     dispatch(createBlog(newBlog));
     navigate('/blogs');
   };
@@ -27,18 +28,13 @@ export default function CreateBlog() {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-             className="border px-3 py-2 w-full dark:bg-white-800 dark:text-black"
+            className="border px-3 py-2 w-full"
             required
           />
         </div>
         <div className="mb-4">
           <label className="block text-sm font-medium">Content</label>
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            className="border px-3 py-2 w-full dark:bg-white-800 dark:text-black"
-            required
-          />
+          <TextEditor content={content} setContent={setContent} /> {/* Use TextEditor */}
         </div>
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
           Create Blog
