@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 import CreateBlog from './components/CreateBlog';
 import BlogList from './components/BlogList';
 import EditBlog from './components/EditBlog';
-import 'quill/dist/quill.snow.css'; 
+import 'quill/dist/quill.snow.css';
 
 export default function App() {
   return (
