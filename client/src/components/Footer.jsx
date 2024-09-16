@@ -24,13 +24,13 @@ export default function FooterCom() {
               <Footer.Title title="About" />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href="https://www.100jsprojects.com"
+                  href="#"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  100 js Projects
+                  Instagram
                 </Footer.Link>
-                <Footer.Link href="/about" target="_blank" rel="noopener noreferrer">
+                <Footer.Link href="#" target="_blank" rel="noopener noreferrer">
                   Afiya's Blog
                 </Footer.Link>
               </Footer.LinkGroup>

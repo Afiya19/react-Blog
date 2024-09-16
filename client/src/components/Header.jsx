@@ -1,6 +1,6 @@
 import { Button, Navbar, TextInput } from 'flowbite-react';
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,31 +12,30 @@ export default function Header() {
   const dispatch = useDispatch();
   const { theme } = useSelector((state) => state.theme);
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const handleSearch = (e) => {
     e.preventDefault();
     dispatch(setSearchQuery(searchTerm)); 
   };
 
-
   const handleHomeClick = () => {
     setSearchTerm(''); 
     dispatch(setSearchQuery('')); 
+    navigate('/blogs'); // Navigate to the blogs page when logo is clicked
   };
 
   return (
     <Navbar className="border-b-2 flex justify-between items-center py-2">
-     
       <div className="flex items-center flex-1 justify-center gap-4">
-        
-        <Link to="/" onClick={handleHomeClick} className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white">
+        {/* Update Link for the logo */}
+        <button onClick={handleHomeClick} className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white">
           <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
             Afiya's
           </span>
           Blog
-        </Link>
+        </button>
 
-        
         <form className="hidden lg:flex flex-1 justify-center items-center" onSubmit={handleSearch}>
           <TextInput
             type="text"
@@ -57,16 +56,10 @@ export default function Header() {
         </form>
       </div>
 
-    
       <div className="flex items-center gap-4">
         <Link to="/create-blog">
           <button className="px-3 py-2 bg-gradient-to-r from-green-500 to-teal-300 text-white rounded-lg">
             Create Blog
-          </button>
-        </Link>
-        <Link to="/sign-in">
-          <button className="px-3 py-2 bg-gradient-to-r from-pink-500 to-blue-300 text-white rounded-lg">
-            Sign In
           </button>
         </Link>
 
@@ -74,12 +67,10 @@ export default function Header() {
           {theme === 'light' ? <FaSun /> : <FaMoon />}
         </Button>
 
-       
         <Button className="w-12 h-10 lg:hidden" color="gray" pill onClick={handleSearch}>
           <AiOutlineSearch />
         </Button>
 
-        
         <Navbar.Toggle />
       </div>
     </Navbar>
